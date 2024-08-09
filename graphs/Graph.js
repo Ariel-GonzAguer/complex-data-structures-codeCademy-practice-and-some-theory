@@ -45,7 +45,7 @@ const newYorkStation2 = trainNetwork2.addVertex('New York');
 
 
 // 3.Removing Vertices
-class Graph {
+class Graph0 {
   constructor() {
     this.vertices = [];
   }
@@ -67,14 +67,58 @@ class Graph {
   }
 }
 
-const trainNetwork = new Graph();
+const trainNetwork = new Graph0();
 const atlantaStation = trainNetwork.addVertex('Atlanta');
 const newYorkStation = trainNetwork.addVertex('New York');
 
-trainNetwork.print();
+// trainNetwork.print();
 
 // Underneath our Graph class, let’s remove the Atlanta vertex we added in the previous exercise using the trainNetwork‘s .removeVertex() method. Remember to do it before the call to .print() so we can see what the resulting graph looks like. We should see our graph with only the New York vertex remaining, and no edges.
-console.log('\n After remove... \n')
+// console.log('\n After remove... \n')
 
-trainNetwork.removeVertex(atlantaStation);
-trainNetwork.print();
+// trainNetwork.removeVertex(atlantaStation);
+// trainNetwork.print();
+
+
+// 4.Connecting Vertices with Edges
+class Graph {
+  constructor() {
+    this.vertices = [];
+  }
+
+  addVertex(data) {
+    const newVertex = new Vertex(data);
+    this.vertices.push(newVertex);
+
+    return newVertex;
+  }
+
+  removeVertex(vertex) {
+    this.vertices = this.vertices.filter(v => v !== vertex);
+  }
+
+  addEdge(vertexOne, vertexTwo) { // create an .addEdge() method, which will create edges between the parameters, vertexOne and vertexTwo.
+
+    if (vertexOne instanceof Vertex && vertexTwo instanceof Vertex) { // If the parameters are both an instanceof a Vertex
+
+    // use the vertices’ .addEdge() method to create an edge between the other vertex.
+      vertexOne.addEdge(vertexTwo);
+      vertexTwo.addEdge(vertexOne);
+    } else { // Otherwise
+    
+      throw new Error('Expected Vertex arguments.') //  throw an error
+    }
+  }
+
+  print() {
+    this.vertices.forEach(vertex => vertex.print());
+  }
+}
+
+const trainNetwork6 = new Graph();
+const atlantaStation6 = trainNetwork6.addVertex('Atlanta');
+const newYorkStation6 = trainNetwork6.addVertex('New York');
+
+trainNetwork6.addEdge(atlantaStation6, newYorkStation6)
+
+trainNetwork6.print();
