@@ -46,5 +46,21 @@ Then, we will use this method in the Graph‘s .addEdge() method to create edges
 *** *** *** ***
 
 5.Removing Vertex Connections
+Now that we can connect vertices together, we want to make the Graph more flexible by giving it the ability to remove connections.
+We will use the .removeEdge() method to remove any Edge between the given vertex instances.
+
+*** *** *** ***
+
+6.Weighted Graphs
+The current implementation of our Graph class is unweighted, where there is no cost associated with the edge that connects the vertices together. Since we want our Graph to be flexible, we should give the option for weights to be added to the edge when a new edge is created.
+
+*** *** *** ***
+
+7.Directed Graphs
+So far we have only built out support for undirected graphs. Next, we will focus on expanding our Graph class to be directed, where there does not necessarily have to be edges going in both directions between the vertices, as we have done with undirected graphs.
+
+The main difference between the undirected graph and directed graph is that our undirected graph uses two edges going in opposite directions to indicate that there is a connection between two vertices.
+
+*** *** *** ***
 
 */
